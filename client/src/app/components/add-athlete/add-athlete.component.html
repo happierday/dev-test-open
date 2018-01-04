@@ -1,0 +1,63 @@
+<div class = "container">
+    <div class = "jumbotron">
+        <div class = "row  show-hide-message">
+            <div [ngClass] ="messageClass">
+                {{ message }}
+            </div>
+        </div>
+        <h1>* is required field</h1>
+        <form [formGroup] = "athleteForm" (submit) = "onSubmit()" >
+            <div class="form-group">
+                <input #fileInput accept="image/*" type="file"/> 
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">* First Name</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="firstName"
+                [ngClass]="{'is-invalid':athleteForm.controls.firstName.errors&&athleteForm.controls.firstName.dirty,'is-valid':!athleteForm.controls.firstName.errors}">
+                <div *ngIf="(athleteForm.controls.firstName.errors && athleteForm.controls.firstName.dirty)" class="alert alert-danger">
+                    <div *ngIf="athleteForm.controls.firstName.errors?.required">
+                        First Name is Required!!
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">* Last Name</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="lastName">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">* Nationality</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="nationality">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">* Association</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="association">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">* Team</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="team">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">* Gender</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="gender">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">* Sports</label>
+                <select multiple class="form-control" id="exampleFormControlSelect1" formControlName="sports">
+                    <option>Golf</option>
+                    <option>Tennis</option>
+                    <option>Basketball</option>
+                    <option>Badminton</option>
+                    <option>Cycling</option>
+                    <option>Darts</option>
+                    <option>Decathlon</option>
+                    <option>Bobsleigh</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">* About</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="about">
+            </div>
+            <button type="submit" [disabled] = "!athleteForm.valid" class="btn btn-success">Submit</button>
+        </form>   
+    </div>
+</div>

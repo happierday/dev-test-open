@@ -1,0 +1,13 @@
+<div class="container text-center">
+    <div class="jumbotron">
+        <h1 class="display-3">Welcome to Athlete Page</h1>
+        <p><button (click) = "addAthlete()" type="button" class="btn btn-info">Add Athlete</button></p>
+    </div>
+    <div class="row text-center" >
+        <div class="col-6 col-sm-3 placeholder" *ngFor="let athlete of result?.data">
+            <img src="{{athlete.img}}" width="200" height="200" alt="Card image cap">
+            <h5>{{athlete?.fullName}}</h5>
+            <a class="nav-link" routerLink = "/profile/{{athlete.fullName}}">Detail</a>
+        </div>
+    </div>
+</div>
